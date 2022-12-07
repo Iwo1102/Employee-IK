@@ -5,12 +5,14 @@ public class Employee {
     String name;
     String ID;
     String phone;
+    String gender;
 
-    Employee(String name, String ID, String phone)
+    Employee(String name, String ID, String phone, String gender)
     {
         this.name = setName(name);
         this.ID = setID(ID);
         this.phone= setPhone(phone);
+        this.gender = setGender(gender);
     }
 
     public String setName(String i) {
@@ -43,6 +45,18 @@ public class Employee {
         else
         {
             throw new IllegalArgumentException("Invalid phone number, must be 11 digits long");
+        }
+    }
+
+    public String setGender(String s) {
+        switch (s)
+        {
+            case "male":
+            case "female":
+            case "non-binary":
+                return s;
+            default:
+                throw new IllegalArgumentException("Can be male, female or non-binary");
         }
     }
 }
