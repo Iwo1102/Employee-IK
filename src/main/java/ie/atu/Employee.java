@@ -6,13 +6,15 @@ public class Employee {
     String ID;
     String phone;
     String gender;
+    String Employ;
 
-    Employee(String name, String ID, String phone, String gender)
+    Employee(String name, String ID, String phone, String gender, String Employ)
     {
         this.name = setName(name);
         this.ID = setID(ID);
         this.phone= setPhone(phone);
         this.gender = setGender(gender);
+        this.Employ = setEmploy(Employ);
     }
 
     public String setName(String i) {
@@ -57,6 +59,17 @@ public class Employee {
                 return s;
             default:
                 throw new IllegalArgumentException("Can be male, female or non-binary");
+        }
+    }
+
+    public String setEmploy(String s) {
+        switch (s)
+        {
+            case "part-time":
+            case "full-time":
+                return s;
+            default:
+                throw new IllegalArgumentException("Can be full or part-time");
         }
     }
 }
