@@ -4,11 +4,13 @@ public class Employee {
 
     String name;
     String ID;
+    String phone;
 
-    Employee(String name, String ID)
+    Employee(String name, String ID, String phone)
     {
         this.name = setName(name);
         this.ID = setID(ID);
+        this.phone= setPhone(phone);
     }
 
     public String setName(String i) {
@@ -29,7 +31,18 @@ public class Employee {
         }
         else
         {
-            throw new IllegalArgumentException("6 characters in length otherwise invalid PPS number error");
+            throw new IllegalArgumentException("Invalid PPS number, must be 6 digits long");
+        }
+    }
+
+    public String setPhone(String s) {
+        if (s.length() == 11)
+        {
+            return s;
+        }
+        else
+        {
+            throw new IllegalArgumentException("Invalid phone number, must be 11 digits long");
         }
     }
 }
